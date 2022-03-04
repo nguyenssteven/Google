@@ -1,0 +1,15 @@
+def gb(p): # Function for Bonus
+  count=len(p) # count the length of p
+  bonus=[1]*count # starting at 1(Binary) * the length of p
+
+  for i in range(1, count): #reading left to right
+    if p[i-1] < p[i]:
+      bonus[i] =bonus[i-1]+1
+
+  for i in range(count -2,-1,-1): #reading right to left
+    if p[i+1] <p[i]:
+      bonus[i]=max(bonus[i],bonus[i+1]+1)
+
+  return bonus #output
+      
+print(gb([1,2,3,4,5,1]))#output should be like this
